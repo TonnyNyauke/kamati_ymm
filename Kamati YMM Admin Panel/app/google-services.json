@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "592231110585",
+    "firebase_url": "https://kamatiymm-default-rtdb.firebaseio.com",
+    "project_id": "kamatiymm",
+    "storage_bucket": "kamatiymm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592231110585:android:c54ab180811206ab2c0868",
+        "android_client_info": {
+          "package_name": "com.example.adminpanel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592231110585-33k7msp1ejuvs7fsrivplt92himvt6ag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3CCFzz5ZMtRv7mk05rn-O9wPKdlbPIVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592231110585-33k7msp1ejuvs7fsrivplt92himvt6ag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592231110585:android:f1fd82acfecbcd562c0868",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592231110585-33k7msp1ejuvs7fsrivplt92himvt6ag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3CCFzz5ZMtRv7mk05rn-O9wPKdlbPIVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592231110585-33k7msp1ejuvs7fsrivplt92himvt6ag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:592231110585:android:70e0c1230b57e4d32c0868",
+        "android_client_info": {
+          "package_name": "com.example.kamatiymm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "592231110585-mof0l633j2ff08dglhmce0db93ci7pf6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kamatiymm",
+            "certificate_hash": "c5d1bfee2a06584b2b122ce7f52fa73535759621"
+          }
+        },
+        {
+          "client_id": "592231110585-33k7msp1ejuvs7fsrivplt92himvt6ag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3CCFzz5ZMtRv7mk05rn-O9wPKdlbPIVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "592231110585-33k7msp1ejuvs7fsrivplt92himvt6ag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

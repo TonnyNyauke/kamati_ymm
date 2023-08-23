@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.KamatiYMM" parent="Theme.Design.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="android:textColorSecondary">@color/secondary</item>
+    </style>
+
+    <style name="Theme.KamatiYMM" parent="Base.Theme.KamatiYMM" />
+
+    <style name="Theme.KamatiYMM.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.KamatiYMM.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.KamatiYMM.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

@@ -1,7 +1,9 @@
 package com.example.kamatiymm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.view.ViewGroup;
@@ -33,8 +35,8 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
-public class HomeActivity extends AppCompatActivity {
-
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+    private NavController navController;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
     private RecyclerView recyclerView;
@@ -76,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_cart, R.id.nav_orders, R.id.nav_program)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
@@ -128,5 +130,39 @@ public class HomeActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        
+        if (id == R.id.nav_cart){
+            navController.navigate(R.id.nav_cart);
+            return true;
+        } else if (id == R.id.nav_orders) {
+            navController.navigate(R.id.nav_orders);
+            return true;
+        } else if (id == R.id.nav_program) {
+            navController.navigate(R.id.nav_program);
+            return true;
+        } else if (id == R.id.nav_progress) {
+            navController.navigate(R.id.nav_progress);
+            return true;
+        } else if (id == R.id.nav_history) {
+            navController.navigate(R.id.nav_history);
+            return true;
+        } else if (id == R.id.nav_settings) {
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.nav_logout) {
+            Paper.book().destroy();
+            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return false;
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,10 +10,19 @@
         android:id="@+id/medical_programs_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#3F51B5"
         android:text="Medical Programs"
         android:textAlignment="center"
         android:textSize="40sp"
-        android:textStyle="bold" />/>
+        android:textStyle="bold" />
+    <Spinner
+        android:id="@+id/diseases_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/medical_programs_fragment"/>
+    <Spinner
+        android:id="@+id/sub_diseases_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diseases_list"/>
 
-</FrameLayout>
+</RelativeLayout>

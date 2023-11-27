@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Paper.init(this);
+
         loginButton  = findViewById(R.id.login_btn);
         signUpLink = findViewById(R.id.signup);
         loginNumber = findViewById(R.id.login_phone_number);
@@ -40,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Initialize remember me
         rememberMe = findViewById(R.id.remember_me);
-        Paper.init(this);
         //Get login information from OnlineUser class for remember me
         String userPhoneKey = Paper.book().read(OnlineUser.userPhoneKey);
         String userPassword = Paper.book().read(OnlineUser.userPasswordKey);
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                     if (userData.getPhone().equals(phone)){
                         if (userData.getPassword().equals(password)){
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            OnlineUser.currentOnlineUsers = userData;
                             startActivity(intent);
                         }
                     }

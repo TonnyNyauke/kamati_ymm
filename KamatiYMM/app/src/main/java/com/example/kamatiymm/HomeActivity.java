@@ -74,7 +74,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         TextView usernameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.profile_image);
 
-        //usernameTextView.setText(OnlineUser.currentOnlineUsers.getUsername());
+        usernameTextView.setText(OnlineUser.currentOnlineUsers.getUsername());
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

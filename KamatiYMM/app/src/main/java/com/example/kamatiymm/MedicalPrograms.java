@@ -2,11 +2,23 @@ package com.example.kamatiymm;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +71,32 @@ public class MedicalPrograms extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_medical_programs, container, false);
+        View view = inflater.inflate(R.layout.fragment_medical_programs, container, false);
+        final Spinner diseasesSpinner = view.findViewById(R.id.diseases_list);
+        final Spinner subDiseasesSpinner = view.findViewById(R.id.sub_diseases_list);
+
+        //Populating the Spinner from the database.
+        DatabaseReference diseaseDatabaseReference = FirebaseDatabase.getInstance().getReference("disease_programmes");
+        diseaseDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                final List<String> diseases = new ArrayList<String>();
+                for (DataSnapshot diseaseSnapshot: snapshot.getChildren())
+                {
+                    //Gets disease name from database and adds it to the Spinner.
+                    String diseaseName = diseaseSnapshot.child("diseaseName").getValue(String.class);
+                    diseases.add(diseaseName);
+                }
+                ArrayAdapter<String> diseasesAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, diseases);
+                diseasesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                diseasesSpinner.setAdapter(diseasesAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return view;
     }
 }

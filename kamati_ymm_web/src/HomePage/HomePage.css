@@ -48,3 +48,62 @@ h1{
 .header{
     font-size: 1.2em;
 }
+/* CSS for devices with screen width less than 600px (like smartphones) */
+@media (max-width: 600px) {
+    .homepage {
+      padding: 10px;
+    }
+    h1 {
+      font-size: 1.5em;
+    }
+    .newslettermail {
+      width: 100%;
+    }
+    .newsletterBtn, .appDownloadBtn {
+      font-size: 0.8em;
+      padding: 8px;
+    }
+    .header {
+      font-size: 1em;
+    }
+  }
+  
+  /* CSS for devices with screen width between 600px and 992px (like tablets) */
+  @media (min-width: 600px) and (max-width: 992px) {
+    .homepage {
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2em;
+    }
+    .newslettermail {
+      width: 70%;
+    }
+    .newsletterBtn, .appDownloadBtn {
+      font-size: 0.9em;
+      padding: 9px;
+    }
+    .header {
+      font-size: 1.1em;
+    }
+  }
+  
+  /* CSS for devices with screen width greater than 992px (like desktops) */
+  @media (min-width: 992px) {
+    .homepage {
+      padding: 30px;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    .newslettermail {
+      width: 50%;
+    }
+    .newsletterBtn, .appDownloadBtn {
+      font-size: 1em;
+      padding: 10px;
+    }
+    .header {
+      font-size: 1.2em;
+    }
+  }  

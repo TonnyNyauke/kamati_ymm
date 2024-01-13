@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../App.css'
 import './HomePage.css';
 import '../firebase.js'
 import firebase from '../firebase.js';
@@ -19,7 +20,7 @@ function HomePage() {
         }
     };
     const downloadBtn = () => {
-        console.log('Download in a few')
+        console.log('Download in a few');
     };
   return (
     <div className='homepage'>

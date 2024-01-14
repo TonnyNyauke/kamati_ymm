@@ -1,5 +1,6 @@
 {
   "name": "kamati_ymm_web",
+  "homepage": "https://kamatiymm.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

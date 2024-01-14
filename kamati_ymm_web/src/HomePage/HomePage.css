@@ -26,7 +26,7 @@ h1{
     margin-bottom: 2em;
 }
 
-.newslettermail, .newsletterBtn, .appDownloadBtn{
+.subscribersName, .newslettermail, .newsletterBtn, .appDownloadBtn{
     font-size: 1em;
     padding: 10px;
     margin-top: 10px;
@@ -52,11 +52,16 @@ h1{
 @media (max-width: 600px) {
     .homepage {
       padding: 10px;
+      width: auto;
+      height: 100%;
     }
     h1 {
       font-size: 1.5em;
     }
     .newslettermail {
+      width: 100%;
+    }
+    .subscribersName {
       width: 100%;
     }
     .newsletterBtn, .appDownloadBtn {

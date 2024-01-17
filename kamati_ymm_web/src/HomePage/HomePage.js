@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../App.css'
 import './HomePage.css';
 import '../firebase.js'
@@ -9,13 +9,29 @@ function HomePage() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState(''); //state variable for the message
     const [showForm, setShowForm] = useState(true); //State variable for form visibility
+    const [newsletters, setNewsletters] = useState([]); //State variable for retrieving newsletters
+
+ //This hook retrieves newsletters from the database (It's the equivalent of componentDidMount() in class components)
+ useEffect(() => {
+    const ref = firebase.database().ref("Newsletters"); //Creates reference to "Newsletter" node
+    ref.on('value', (snapshot) => { //Sets up a listener on the "Newsletter" node
+        const newsletters = snapshot.val(); //Gets data from "Newsletter" node
+        const newsletterList = [];
+        for (let id in newsletters){ //Iterates over the properties of newsletters object
+            newsletterList.push({id, ...newsletters[id]});
+        }
+        setNewsletters(newsletterList);
+    });
+},[]);
+
+
 
     const newsletterSignup = async (event) => {
         event.preventDefault();
 
         try{
             //add email to your realtime database collection
-            const ref = firebase.database().ref('newsletter subsribers');
+            const ref = firebase.database().ref('Newsletter Subsribers');
             const newSubscriberRef = ref.push();
             await newSubscriberRef.set({subscribersName, email});
 
@@ -53,6 +69,13 @@ function HomePage() {
         <p>{message}</p> {/**Display the message */}
         {/**Download App Button */}
         <button type='button' className='appDownloadBtn' onClick={downloadBtn}>Download our App</button>
+        {/**Newsletter Display goes here */}
+        {newsletters.map((newsletters, index) => (
+            <div key={index}>
+                <h2>{newsletters.Title}</h2>
+                <p>{newsletters.Newsletter}</p>
+            </div>
+        ))}
     </div>
   )
 }

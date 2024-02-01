@@ -3,10 +3,12 @@ import '../App.css'
 import './HomePage.css';
 import '../firebase.js'
 import firebase from '../firebase.js';
+import { Link } from 'react-router-dom';
+import '../ReadArticles/ReadArticle.css'
 
 function HomePage() {
-    const [subscribersName, setSubscribersName] = useState('');
     const [email, setEmail] = useState('');
+    const [phonenumber, setPhonenumber] = useState('');
     const [message, setMessage] = useState(''); //state variable for the message
     const [showForm, setShowForm] = useState(true); //State variable for form visibility
     const [newsletters, setNewsletters] = useState([]); //State variable for retrieving newsletters
@@ -33,12 +35,12 @@ function HomePage() {
             //add email to your realtime database collection
             const ref = firebase.database().ref('Newsletter Subsribers');
             const newSubscriberRef = ref.push();
-            await newSubscriberRef.set({subscribersName, email});
+            await newSubscriberRef.set({phonenumber, email});
 
             //Set a message after subscribing
             setMessage("Thank you for subscribing to our newsletters. Be sure to check your email for our bi-weekly updates");
             setShowForm(false);
-            setSubscribersName('');
+            setPhonenumber('');
             setEmail('');
 
             //Clear message after 5 seconds
@@ -56,26 +58,34 @@ function HomePage() {
     };
   return (
     <div className='homepage'>
-        <h1>Welcome to Kamati YMM</h1>
+       <nav className='nav-home'>
+        <h2>Kamati YMM</h2>
+        <button type='button' className='appDownloadBtn' onClick={downloadBtn}>Download our App</button>
+       </nav>
         {/*Sign up form for the Newsletter */}
-        <p className='header'>Sign up for our Newsletters</p>
+        <p className='header'>Subscribe to our Newsletters</p>
         {showForm && (<form className='newsletter' method='POST'>
-            <input type='text' className='subscribersName' placeholder='Enter your full name' value={subscribersName}
-            onChange={e => setSubscribersName(e.target.value)}/>
+            <input type='text' className='phonenumber' placeholder='Enter phone number' value={phonenumber}
+            onChange={(e) => setPhonenumber(e.target.value)}/>
             <input type='email' className='newslettermail' placeholder='Enter your email address' value={email}
-            onChange={e => setEmail(e.target.value)}/>
-            <button type='button' className='newsletterBtn' onClick={newsletterSignup}>Signup</button>
+            onChange={(e) => setEmail(e.target.value)}/>
+            <button type='button' className='newsletterBtn' onClick={newsletterSignup}>Subscribe</button>
         </form>)}
         <p>{message}</p> {/**Display the message */}
-        {/**Download App Button */}
-        <button type='button' className='appDownloadBtn' onClick={downloadBtn}>Download our App</button>
         {/**Newsletter Display goes here */}
+        <div className='newsDisplayContainer'>
         {newsletters.map((newsletters, index) => (
-            <div key={index}>
-                <h2>{newsletters.Title}</h2>
-                <p>{newsletters.Newsletter}</p>
+            <div className='newsDiplay' key={index}>
+                <div className='newsItem'>
+                    <h2 className='title'>{newsletters.title}</h2>
+                    <img src={newsletters.image} alt={newsletters.title}/>
+                    <p>{newsletters.description}</p>
+                    <Link to={`/ReadArticle/${newsletters.id}`} className='readarticle'>Read</Link>
+                </div>
             </div>
         ))}
+        </div>
+        
     </div>
   )
 }

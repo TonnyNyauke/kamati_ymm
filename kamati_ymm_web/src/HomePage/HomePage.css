@@ -1,38 +1,99 @@
 .App{
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
 }
 
 .homepage{
-    /*background-image: url('../Photos/mountkenyapeak.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;*/
-
+  text-align: center;
     background-color: #B7C9E2;
-
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    color: antiquewhite;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    padding-top: 20px;
+    padding: 2rem;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px(0, 0, 0, 0.1);
 }
 h1{
     margin-bottom: 1em;
     font-size: 2.5em;
+    color: #333;
 }
 .newsletter{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+.newsDisplayContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+.newsItem {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+  height: 350px; /* Set a fixed height */
+  overflow: auto; /* Add a scrollbar if necessary */
 }
 
-.subscribersName, .newslettermail, .newsletterBtn, .appDownloadBtn{
+.title {
+  font-size: 0.9rem;
+  margin-top: 0;
+  padding: 10px;
+  background-color: thistle !important;
+}
+.newsItem p {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.readarticle {
+  align-self: center;
+  margin-top: 0.1rem;
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+.readarticle:hover {
+  background-color: #444;
+}
+.title, .newsItem {
+  margin-bottom: 1rem;
+}
+.newsItem img {
+  max-width: 100%;
+    max-height: 50%;
+    object-fit: cover;
+    border-radius: 5px;
+    background-color: #555;
+}
+.newsDisplay{
+  background-color: #fff;
+    border-radius: 5px;
+    width: 100%;
+  padding: 10px;
+  margin: 0 0 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  max-width: 600px;
+}
+.newsDisplay :hover {
+  transform: translateY(-5px);
+}
+.phonenumber, .newslettermail, .newsletterBtn, .appDownloadBtn{
     font-size: 1em;
     padding: 10px;
     margin-top: 10px;
@@ -47,41 +108,70 @@ h1{
     color: antiquewhite;
     cursor: pointer;
     text-align: center;
+    font-size: 1em;
 }
 .appDownloadBtn{
     background-color: #808080;
+    margin-right: 20px;
 }
 .header{
     font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
 }
+/* CSS for navigation bar */
+/* CSS for navigation bar */
+.nav-home {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  background-color: transparent; /* No background color */
+}
+
+.nav-home a:hover {
+  color: #ddd;
+}
+
+.nav-home {
+  margin-right: 20px;
+}
+
+
 /* CSS for devices with screen width less than 600px (like smartphones) */
 @media (max-width: 600px) {
-    
-    .homepage {
+  .homepage{
+    padding: 1rem;
+  }
+    .newsDisplay {
+      width: 100%;
+      margin: 0 0 2rem;
+    }
+    .article-display {
+      max-width: 100%;
       padding: 10px;
+  }
+
+  .newsDisplayContainer {
+      margin-bottom: 20px; /* Reduces the space between articles */
+  }
+
+    .newsletter{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .newsItem{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .h1{
       width: auto;
-      height: 100%;
-    }
-    h1 {
-      font-size: 1.5em;
-    }
-    .newslettermail {
-      width: 100%;
-    }
-    .subscribersName {
-      width: 100%;
-    }
-    .newsletterBtn, .appDownloadBtn {
-      font-size: 0.8em;
-      padding: 8px;
-    }
-    .header {
-      font-size: 1em;
     }
   }
   
   /* CSS for devices with screen width between 600px and 992px (like tablets) */
-  @media (min-width: 600px) and (max-width: 992px) {
+  @media (min-width: 600px) and (max-width: 680px) {
     .homepage {
       padding: 20px;
       height: 100%;
@@ -100,7 +190,6 @@ h1{
       font-size: 1.1em;
     }
   }
-  
   /* CSS for devices with screen width greater than 992px (like desktops) */
   @media (min-width: 992px) {
     .homepage {

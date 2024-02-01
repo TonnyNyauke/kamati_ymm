@@ -1,15 +1,16 @@
-import './App.css';
 import {Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import './App.css';
+import AdminLogin from './LoginPage/AdminLogin'
 import HomePage from './HomePage/HomePage';
-import ReadArticle from './ReadArticles/ReadArticle';
+import NewslettersPage from './NewsLettersPage/NewslettersPage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<HomePage/>}/>
+        <Route path='/' element={<AdminLogin/>}/>
         <Route path='HomePage/*' element={<HomePage/>}/>
-        <Route path='ReadArticle/:id' element={<ReadArticle />}/>
+        <Route path='NewslettersPage' element={<NewslettersPage/>}/>
       </Routes>
     </Router>
   );

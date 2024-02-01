@@ -1,0 +1,58 @@
+.article-display {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.article-display h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2em;
+}
+
+.article-display img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.article-display h3 {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 1.5em;
+}
+
+.article-display p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/*Stylings for nav-bar*/ 
+.back-to-home a{
+    list-style: none;
+}
+.back-to-home {
+    height: 50px;
+    padding: 10px 0;
+    text-align: left; /* Aligns the text to the right */
+    background-color: #333;
+}
+
+.back-to-home a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+    padding: 10px 10px; /* Add padding */
+    background-color: #808080; /* Add a background color */
+    border-radius: 5px; /* Round the corners */
+    display: inline-block; /* Required for padding to take effect */
+}
+
+.back-to-home a:hover {
+    color: #ddd;
+    background-color: #555;
+}

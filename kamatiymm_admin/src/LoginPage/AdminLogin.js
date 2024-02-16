@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import '../firebase'
 import {getDatabase, ref, onValue} from "firebase/database"
 import { useNavigate } from 'react-router-dom'
+import './AdminLogin.css'
 
 function AdminLogin() {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    //Check if admin is already logged in
+    
 
     const handleLogin = async (event) => {
       event.preventDefault();
@@ -24,10 +28,9 @@ onValue(adminRef, (snapshot) => {
     
   }
   else{
-    console.log("Error logging in");
+    alert("Wrong credentials");
   }
 });
-
     }
 
   return (

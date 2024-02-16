@@ -1,82 +1,136 @@
-import 'firebase/compat/database';
-import 'firebase/compat/storage';
-import firebase from '../firebase';
-import '../firebase'
-import './NewsletterPage.css'
-import { useRef, useState } from "react";
+import React, { useState, useRef } from 'react';
+import firebase from '../firebase'; // Import your Firebase configuration
+import './NewsletterPage.css';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'
 
+
+const modules = {
+  toolbar: [
+    [{header: [1,2,3,4,5,6, false]}],
+    [{font: []}],
+    [{size: []}],
+    ["bold", "italic", "underline", "strike", "blockquote"],
+    [
+      {list: "ordered"},
+      {list: "bullet"},
+      {indent: "-1"},
+      {indent: "+1"},
+    ],
+    ["link", "image", "video"],
+  ]
+}
 function NewslettersPage() {  
-  const [articleTitle, setarticleTitle] = useState('');
+  // State variables to hold article data
+  const [articleTitle, setArticleTitle] = useState('');
   const [imageSrc, setImageSrc] = useState(null);
   const [description, setDescription] = useState('');
   const [article, setArticle] = useState('');
-  const imageRef = useRef(null);
   const fileInputRef = useRef(null);
 
-  const imageUpload = (e) => {
+  // Function to handle image upload
+  const handleImageUpload = (e) => {
     e.preventDefault();
-
     const file = fileInputRef.current.files[0];
+
     if (file.type.startsWith('image/')) {
-        const reader = new FileReader();
+      const reader = new FileReader();
       reader.onload = (e) => {
-        setImageSrc(e.target.result)
+        setImageSrc(e.target.result);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  const handleFormSubmit = async(e) => {
+  // Function to handle form submission
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const db = firebase.database();
-    const newsletterPostsRef = db.ref('Newsletters');
-    const newNewsletterRef = newsletterPostsRef.push();
+    try {
 
-    //Upload the image tp Firebase storage and get the download URL
-    const storage = firebase.storage();
-    const imageReference = storage.ref('/ArticleImages/' + fileInputRef.current.files[0].name);
-    const uploadTask = imageReference.put(fileInputRef.current.files[0]);
+      // Get reference to Firebase database
+      const db = firebase.database();
+      const newsletterPostsRef = db.ref('Newsletters');
+      const newNewsletterRef = newsletterPostsRef.push();
 
-    uploadTask.then(async() => {
-      const downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
-        await newNewsletterRef.set({
-          id: newNewsletterRef.key,
-          title:  articleTitle,
-          image: downloadURL,
-          description:  description,
-          content: article,
-        });
-    
-        //Clear form
-        setArticle('');
-        setImageSrc(null);
-        setDescription('');
-        setarticleTitle('');
-    });
+      // Upload the image to Firebase storage and get the download URL
+      const storage = firebase.storage();
+      const imageReference = storage.ref('/ArticleImages/' + fileInputRef.current.files[0].name);
+      const uploadTask = imageReference.put(fileInputRef.current.files[0]);
+
+      uploadTask.on('state_changed', 
+        (snapshot) => {
+          // Handle progress
+        },
+        (error) => {
+          console.error('Error uploading image:', error);
+        },
+        async () => {
+          // Upload successful, get download URL
+          const downloadURL = await imageReference.getDownloadURL();
+          // Save article data to Firebase database
+          await newNewsletterRef.set({
+            title: articleTitle,
+            image: downloadURL,
+            description: description,
+            content: article
+          });
+          // Clear form fields after submission
+          setArticleTitle('');
+          setImageSrc(null);
+          setDescription('');
+          setArticle('');
+        }
+      );
+    } catch (error) {
+      console.error('Error submitting article:', error);
+    }
   };
 
   return (
-    <div className="newsletters-page">
-      <form onSubmit={handleFormSubmit}>
-      <div className="title-container">
-        <textarea placeholder="Title goes here"
-        value={articleTitle} onChange={(e) => setarticleTitle(e.target.value)}
+    <div className="newsletter-container">
+      <form onSubmit={handleFormSubmit} className='newsletters-page'>
+        <input 
+          type='text' 
+          placeholder="Title goes here"
+          value={articleTitle} 
+          onChange={(e) => setArticleTitle(e.target.value)}
         />
-        <input type='file' ref={fileInputRef} onChange={imageUpload} style={{display: 'none'}}/>
+        <input 
+          type='file' 
+          ref={fileInputRef} 
+          onChange={handleImageUpload} 
+          style={{ display: 'none' }}
+        />
         <div className='image-container' onClick={() => fileInputRef.current.click()}>
-          {imageSrc && <img src={imageSrc} alt="articleTitle" ref={imageRef}/>}
+          {imageSrc && <img src={imageSrc} alt="articleTitle" />}
           {!imageSrc && <p>Click to upload an image</p>}
+        </div>
+        <textarea 
+          placeholder="Description goes here" 
+          className="description-container" 
+          value={description} 
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <div className='container'>
+          <div className='row'>
+            <div className='editor'>
+              <ReactQuill
+                theme='snow'
+                value={article}
+                onChange={setArticle}
+                className='text-editor'
+                modules={modules}
+              />
+            </div>
+            
           </div>
-          <textarea placeholder="Description goes here" className="description-container" 
-          value={description} onChange={(e) => setDescription(e.target.value)}/>
-        <textarea placeholder="Article goes here" className="article-container"
-        value={article} onChange={(e) => setArticle(e.target.value)}/>
-        <button type="submit" className="save-button">Send</button>
-      </div>
+        </div>
+
+        <button type='submit' className='sendBtn'>Send</button>
       </form>
-    </div> 
+    </div>
   );
 }
 
-export default NewslettersPage
+export default NewslettersPage;

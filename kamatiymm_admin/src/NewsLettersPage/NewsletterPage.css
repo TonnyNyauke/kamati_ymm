@@ -1,60 +1,77 @@
+.newsletter-container {
+  background-color: antiquewhite;
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 20px; /* Add padding for better spacing */
+  position: relative; /* Position relative for absolute positioning */
+}
+
 .newsletters-page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
+  background-color: aliceblue;
 }
-
-.title-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.title-container textarea {
-  width: 50%;
-  height: 5rem;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.title-image-container {
-  width: 50%;
-  height: 20rem;
-  border: 1px solid #ccc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.title-image {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.article-container {
-  width: 50%;
-  height: 50rem;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.save-button {
-  width: 30%;
-  height: 3rem;
-  font-size: 1.2rem;
-}
-.image-container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.newsletters-page input[type = "text"]{
+  width: 70%;
+  height: 35px;
   margin-top: 20px;
-  margin-bottom: 20px;
+}
+
+.image-container {
+  width: 90%;
+  margin-top: 20px;
+  text-align: center; /* Center the image */
+  border: 2px dashed #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
 }
 
 .image-container img {
   max-width: 100%;
   height: auto;
+  border-radius: 5px;
+}
+
+.text-editor {
+  width: 100%;
+  height: 100vh; /* Adjust the height as needed */
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.sendBtn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sendBtn:hover {
+  background-color: #45a049;
+}
+
+.description-container {
+  width: 90%;
+  height: 40px;
+  margin-top: 20px;
+}
+
+/* Adjustments for mobile devices */
+@media screen and (max-width: 600px) {
+  .text-editor {
+    height: 200px; /* Reduce height for smaller screens */
+  }
 }

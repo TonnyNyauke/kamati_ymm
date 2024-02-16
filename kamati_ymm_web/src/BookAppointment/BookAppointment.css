@@ -1,0 +1,77 @@
+.appointment-booking{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.book-consultations-form input[type='text'],
+.book-consultations-form input[type='email'],
+.book-treatment-session-form input[type='text'],
+.book-treatment-session-form input[type='email'],
+.book-counselling-form input[type='text'],
+.book-counselling-form input[type='email'] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.book-consultations-form button, .book-treatment-session-form button,
+.book-counselling-form button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.book-consultations-form, .book-counselling-form, .book-treatment-session-form
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+.book-consultations-form input[type='radio'],
+.book-counselling-form input[type='radio'],
+.book-treatment-session-form input[type='radio']{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  margin: 5px 0;
+}
+.back a{
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.back a:hover{
+  color: #808080;
+}
+.appointment-booking {
+  list-style: none;
+  height: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+@media (max-width: 600px){
+  .appointment-booking{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 30px;
+  }
+  .book-consultations-form input[type='radio'],
+  .book-counselling-form input[type='radio'],
+  .book-treatment-session-form input[type='radio'] {
+    margin: 5px 0; /* Adjust the margin for smaller screens */
+  }
+
+}

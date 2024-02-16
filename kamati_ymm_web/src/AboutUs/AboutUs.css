@@ -1,0 +1,89 @@
+/* Define your color scheme */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --text-color: #333;
+  }
+  
+  /* Update typography */
+  body {
+    font-family: 'Roboto', sans-serif; /* Example font */
+  }
+  
+  /* Improve spacing and alignment */
+  .about-us {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .ceo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    justify-items: center;
+  }
+  
+  .ceo img {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .ceo h3 {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+  }
+  
+  .ceo p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+  
+  /* Add hover effects for links */
+  .back-to-home{
+    border-radius: 5px;
+  }
+  .back-to-home a {
+    color: #dee7ee;
+    transition: color 0.3s ease;
+  }
+  
+  .back-to-home a:hover {
+    color: var(--secondary-color);
+  }
+  
+  /* Update heading styles */
+  .about-us h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+  
+  /* Update paragraph styles */
+  .about-us p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+  /*Footer styling */
+  .footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .footer p {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  

@@ -1,11 +1,16 @@
+/* Centering the items within .article-display */
 .article-display {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text content */
 }
-
+.article-display h3, .article-display div {
+    direction: ltr;
+    text-align: left;
+  }
 .article-display h2 {
     margin-bottom: 20px;
     color: #333;
@@ -35,7 +40,7 @@
     list-style: none;
 }
 .back-to-home {
-    height: 50px;
+    height: 35px;
     padding: 10px 0;
     text-align: left; /* Aligns the text to the right */
     background-color: #333;
@@ -44,7 +49,7 @@
 .back-to-home a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1em;
     transition: color 0.3s ease;
     padding: 10px 10px; /* Add padding */
     background-color: #808080; /* Add a background color */
@@ -55,4 +60,93 @@
 .back-to-home a:hover {
     color: #ddd;
     background-color: #555;
+}
+
+/***********Comment Section Styling *************/
+.comments-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.comments-section textarea,
+.comments-section input[type='text'],
+.comments-section button {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.comments-section button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.comments-section button:hover {
+    background-color: #0056b3;
+}
+
+.comment-list {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 300px; /* Set a maximum height for the comments section */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the maximum height */
+}
+
+.comment-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.comment-header strong {
+    font-weight: bold;
+}
+
+.comment-timestamp {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.comment-text {
+    color: #333;
+    line-height: 1.4;
+}
+
+/************Reads styling***********/
+.read-count {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto 20px; /* Center horizontally and add bottom margin */
+    max-width: 820px;
+    text-align: center; /* Center text content */
+}
+
+.read-count p {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
 }

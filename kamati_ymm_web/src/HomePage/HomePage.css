@@ -5,12 +5,37 @@
   align-items: center;
   background-color: #f5f5f5;
 }
+/************Header Div Styling **************/
 
+.header {
+  color: #fff; /* Text color */
+  padding: 20px; /* Padding around the content */
+  border-radius: 10px; /* Rounded corners */
+  margin: 20px;
+  
+}
+
+.header h3 {
+  font-size: 2rem; /* Font size for the heading */
+  margin-bottom: 10px; /* Bottom margin for spacing */
+}
+
+.header p {
+  font-size: 1.2rem; /* Font size for paragraphs */
+  margin-bottom: 10px; /* Bottom margin for spacing */
+}
+.phonenumber::placeholder,
+.newslettermail::placeholder {
+  text-align: center;
+}
+
+
+/******************/
 .homepage{
   text-align: center;
-    background-color: #B7C9E2;
+    background-color: #e5e1eb;
     padding: 2rem;
-    width: 100%;
+    max-width: 100%;
     margin: auto;
     border-radius: 10px;
     box-shadow: 0 2px 5px(0, 0, 0, 0.1);
@@ -34,6 +59,10 @@ h1{
     grid-gap: 1rem;
     padding: 1rem;
     flex-wrap: wrap;
+    overflow-y: auto;
+}
+.homepage h2{
+  color: rgb(133, 21, 21);
 }
 .newsItem {
   display: flex;
@@ -93,8 +122,8 @@ h1{
 .newsDisplay :hover {
   transform: translateY(-5px);
 }
-.phonenumber, .newslettermail, .newsletterBtn, .appDownloadBtn{
-    font-size: 1em;
+.phonenumber, .newslettermail, .newsletterBtn{
+    font-size: 0.8em;
     padding: 10px;
     margin-top: 10px;
     border: none;
@@ -103,45 +132,87 @@ h1{
 .newslettermail{
     width: 300px;
 }
-.newsletterBtn, .appDownloadBtn{
+.newsletterBtn{
     background-color: #808080;
     color: antiquewhite;
     cursor: pointer;
     text-align: center;
     font-size: 1em;
 }
-.appDownloadBtn{
-    background-color: #808080;
-    margin-right: 20px;
-}
-.header{
-    font-size: 1.2em;
-    color: #333;
-    font-weight: bold;
-}
-/* CSS for navigation bar */
-/* CSS for navigation bar */
-.nav-home {
+.nav-home li{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  background-color: transparent; /* No background color */
+  padding: 10px;
+}
+.logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.logo span{
+  font-weight: bold;
+  font-size: large;
+}
+.logo img{
+  margin-top: 0;
+  max-width: 70px;
+  max-height: 50px;
+}
+.header{
+    background-color: dodgerblue;
+    color: white;
+}
+/* For side navigation **/
+.top-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+.top-nav a{
+  text-decoration: none;
+  color: #333;
+}
+.top-nav a:hover{
+  color: #808080;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
-.nav-home a:hover {
-  color: #ddd;
+.logo-big {
+  display: flex;
+  align-items: center;
 }
 
-.nav-home {
-  margin-right: 20px;
+.logo-big img {
+  max-width: 70px;
+  max-height: 50px;
 }
 
+.logo-big span {
+  font-weight: bold;
+  font-size: large;
+}
 
+.sidebar-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 /* CSS for devices with screen width less than 600px (like smartphones) */
 @media (max-width: 600px) {
-  .homepage{
+  .homepage {
     padding: 1rem;
   }
+  
     .newsDisplay {
       width: 100%;
       margin: 0 0 2rem;
@@ -150,7 +221,9 @@ h1{
       max-width: 100%;
       padding: 10px;
   }
-
+.article{
+  overflow: scroll;
+}
   .newsDisplayContainer {
       margin-bottom: 20px; /* Reduces the space between articles */
   }
@@ -167,6 +240,15 @@ h1{
     }
     .h1{
       width: auto;
+    }
+    .header h3 {
+      font-size: 1.5rem; /* Font size for the heading */
+      margin-bottom: 10px; /* Bottom margin for spacing */
+    }
+    
+    .header p {
+      font-size: 1rem; /* Font size for paragraphs */
+      margin-bottom: 10px; /* Bottom margin for spacing */
     }
   }
   
@@ -195,6 +277,7 @@ h1{
     .homepage {
       padding: 30px;
     }
+    
     h1 {
       font-size: 2.5em;
     }
@@ -209,3 +292,84 @@ h1{
       font-size: 1.2em;
     }
   }  
+  /* Footer stylings*/
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px; /* Adjust padding as per your design */
+    text-align: center;
+  }
+  
+  .footer .contact-info {
+    margin-bottom: 20px;
+  }
+  
+  .footer .contact-info p {
+    margin: 5px 0;
+  }
+  
+  .footer .social-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer .social-links a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .footer .legal-links a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .footer .copyright {
+    font-size: 0.8em;
+  }
+
+  /***** SUBSCRIPTION MESSAGE DISPLAY STYLING ****/
+  .message {
+    background-color: #f0f0f0; /* Light background color */
+    color: #333; /* Text color */
+    padding: 10px 20px; /* Padding around the message */
+    margin-top: 20px; /* Margin to separate from other elements */
+    font-size: 1em; /* Font size */
+    font-weight: bold; /* Font weight */
+    border: 2px solid #ccc;
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+    transition: opacity 0.3s ease; /* Smooth transition */
+  }
+  
+  .message.hidden {
+    opacity: 0; /* Hide the message when not displayed */
+  }
+  /****Pagination Stylings ****/
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .page-link {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .page-link:hover {
+    background-color: #45a049;
+  }
+  
+  .page-link:active {
+    background-color: #3e8e41;
+  }
+  
+  

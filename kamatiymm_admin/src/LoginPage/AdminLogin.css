@@ -1,42 +1,38 @@
-/* AdminLogin.css */
+.loginContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Center the divs vertically */
+  margin-top: 100px;
+}
 
-.formContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .adminLoginForm {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .phoneNumber,
-  .adminPassword {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .adminLoginBtn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .adminLoginBtn:hover {
-    background-color: #0056b3;
-  }
-  
-  
+.loginContainer a {
+  background-color: aliceblue;
+  border-radius: 5px;
+  height: 100px;
+  width: 200px;
+  text-align: center;
+  margin-top: 20px;
+  transition: all 0.3s ease; /* Transition for smooth animation */
+
+  text-decoration: none;
+  text-align: center;
+}
+
+.loginContainer a:hover {
+  transform: scale(1.5); /* Enlarge the hovered div */
+  background-color: lightblue; /* Change background color on hover */
+  z-index: 1; /* Bring the hovered div to the front */
+}
+
+.loginContainer a:not(:hover) {
+  opacity: 0.4; /* Reduce opacity of non-hovered divs */
+}
+
+.loginContainer a:first-child:hover {
+  transform: translateX(50%); /* Move the left-most div to the right */
+}
+
+.loginContainer a:last-child:hover {
+  transform: translateX(-50%); /* Move the right-most div to the left */
+}

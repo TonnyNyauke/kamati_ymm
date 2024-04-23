@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import firebase from '../firebase'; // Import your Firebase configuration
+import firebase from '../../firebase'; // Import your Firebase configuration
 import './NewsletterPage.css';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'

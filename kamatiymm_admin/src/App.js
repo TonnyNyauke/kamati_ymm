@@ -1,30 +1,37 @@
-import {Routes, Route, BrowserRouter as Router } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import AdminLogin from './LoginPage/AdminLogin'
-import HomePage from './HomePage/HomePage';
-import NewslettersPage from './NewsLettersPage/NewslettersPage';
-import AppCenter from './AppCenter/AppCenter';
-import Sanitarium from './Sanitarium/Sanitarium';
-import Newstart from './Newstart/Newstart';
-import MealPlanner from './MealPlanner/MealPlanner';
-import Shop from './Shop/Shop';
-import Appointment from './Appointments/Appointment';
-import AnalyticsPage from './Analytics/AnalyticsPage';
+import AdminLogin from './LoginPage/AdminLogin';
+import Newslogin from './MediaAndCommunication/Newslogin';
+import HumanResource from './HumanResource/HumanResource';
+import LandingPage from './HumanResource/LandingPage';
+import AddNewAdmin from './HumanResource/AddNewAdmin/AddNewAdmin';
+import EmployeeDatabase from './HumanResource/EmployeeDatabase/EmployeeDatabase';
+import SalesLogin from './SalesAndMarketing/Shop/LandingPages/SalesLogin';
+import Shop from './SalesAndMarketing/Shop/Shop';
+import AddProducts from './SalesAndMarketing/Shop/AddProducts/AddProducts';
+import Departments from './HumanResource/Departments';
+import MealPlanner from './Medical/MealPlanner/MealPlanner';
+import Medical from './Medical/Medical';
+import NewProject from './Medical/MealPlanner/NewProject';
+
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path='/' element={<AdminLogin/>}/>
-        <Route path='HomePage/*' element={<HomePage/>}/>
-        <Route path='NewslettersPage/' element={<NewslettersPage/>}/>
-        <Route path='AppCenter/' element={<AppCenter/>}/>
-        <Route path = 'Sanitarium/' element={<Sanitarium/>}/>
-        <Route path='Newstart/' element={<Newstart/>}/>
-        <Route path='MealPlanner/' element={<MealPlanner/>}/>
-        <Route path='Shop/' element={<Shop/>}/>
-        <Route path='Appointment/' element={<Appointment/>}/>
-        <Route path='AnalyticsPage/' element={<AnalyticsPage/>}/>
+        <Route path='Newslogin' element={<Newslogin/>}/>
+        <Route path='HumanResource' element={<HumanResource/>}/>
+        <Route path='LandingPage' element={<LandingPage />}/>
+        <Route path='AddNewAdmin' element={<AddNewAdmin/>}/>
+        <Route path='EmployeeDatabase' element={<EmployeeDatabase/>}/>
+        <Route path='SalesLogin' element={<SalesLogin/>}/>
+        <Route path='Shop' element={<Shop/>}/>
+        <Route path='AddProducts' element={<AddProducts/>}/>
+        <Route path='Departments' element={<Departments/>}/>
+        <Route path='MealPlanner' element={<MealPlanner/>}/>
+        <Route path='Medical' element={<Medical/>}/>
+        <Route path='NewProject' element={<NewProject/>} />
       </Routes>
     </Router>
   );

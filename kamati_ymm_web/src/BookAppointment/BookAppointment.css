@@ -1,8 +1,65 @@
-.appointment-booking{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 30px;
+.appointment-booking {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column layout */
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.treatment-booking, .counselling-booking, .consultations-booking {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust minmax values based on your design */
+  gap: 20px; /* Adjust the gap between items */
+  margin-bottom: 40px;
+}
+
+.appointment-booking p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+.consultations-booking,
+.counselling-booking,
+.treatment-bookin h2{
+  font-size: 1rem;
+  line-height: 1;
+}
+.appointment-booking img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.consultations-booking > div,
+.counselling-booking,
+.treatment-booking {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.8));
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-booking button {
+  padding: 10px 20px;
+  background-color: black; /* Change to black */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px; /* Adjust margin-top as needed */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.appointment-booking button[type='button']:hover, .cancel:hover {
+  background-color: #333; /* Darken the hover color */
 }
 
 .book-consultations-form input[type='text'],
@@ -17,8 +74,8 @@
   border: 1px solid #ccc;
 }
 
-.book-consultations-form button, .book-treatment-session-form button,
-.book-counselling-form button {
+.book-consultations-form button[type='button'], .book-treatment-session-form button[type='button'],
+.book-counselling-form button[type='button'] {
   padding: 10px 20px;
   background-color: #4CAF50; /* Green */
   border: none;
@@ -30,13 +87,21 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
+
 }
-.book-consultations-form, .book-counselling-form, .book-treatment-session-form
+.book-consultations-form, .book-counselling-form, .book-treatment-session-form,
+.invoice-overlay
 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  border: 1px solid #383636; /* Added border line */
+  border-radius: 7px;   /* Rounded  */
+  background-color: white;
+  width:  90vw;
+  height: 100%;
+  padding: 20px;
+  overflow: auto;
 }
 .book-consultations-form input[type='radio'],
 .book-counselling-form input[type='radio'],
@@ -44,8 +109,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
   margin: 5px 0;
+}
+.appointmentTime{
+  display: block; /* Adjust as needed, e.g., inline-block, flex */
+  margin: 10px 0; /* Vertical & Horizontal spacing */
+  padding: 5px 10px; /* Padding inside the element */
+  background-color: #f2f2f2; /* Light grey background */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Text size */
+  color: #333; /* Dark grey text */
+  text-align: center; /* Center the text */
+  width: auto; /* Adjust width as needed */
+  border: 1px solid #ccc; /* Light grey border */
 }
 .back a{
   text-decoration: none;
@@ -61,6 +137,14 @@
   font-size: 15px;
   text-align: center;
 }
+.appointment-buttons{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 20px;
+}
+.cancel{
+  background-color: red;
+}
 @media (max-width: 600px){
   .appointment-booking{
     display: flex;
@@ -73,5 +157,24 @@
   .book-treatment-session-form input[type='radio'] {
     margin: 5px 0; /* Adjust the margin for smaller screens */
   }
+  .consultations-booking,
+  .counselling-booking,
+  .treatment-booking {
+    font-size: 0.6rem;
+    line-height: 1;
+}
 
+}
+
+/**Modal styling*/
+.book-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

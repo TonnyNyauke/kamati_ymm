@@ -52,8 +52,8 @@ function HomePage() {
                     const newSubscriberRef = ref.push();
                     await newSubscriberRef.set({phonenumber, email});
     
-                  //Set a message after subscribing
-                  setMessage("Thank you for subscribing to our newsletters. Be sure to check your email for our bi-weekly updates");
+                //Set a message after subscribing
+                setMessage("Thank you for subscribing to our newsletters. Be sure to check your email for our bi-weekly updates");
                 
                 setShowForm(false);
                 setPhonenumber('');
@@ -152,18 +152,19 @@ function HomePage() {
             </div>
 
             <form className='newsletter' method='POST'>
-            <input type='text' className='phonenumber' placeholder='Phone number' value={phonenumber}
-            onChange={(e) => setPhonenumber(e.target.value)}
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" // Regular expression for email validation
-            required/>
-            <input type='email' className='newslettermail' placeholder='youremail@domain.com' value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            pattern="^\d{10}$" // Regular expression for 10-digit phone number validation
-            required // Makes the input field required
-            />
-            <button type='button' className='newsletterBtn' onClick={newsletterSignup}>Subscribe</button>
-        </form>
+              <input type='text' className='phonenumber' placeholder='Phone number' value={phonenumber}
+              onChange={(e) => setPhonenumber(e.target.value)}
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" // Regular expression for email validation
+              required/>
+              <input type='email' className='newslettermail' placeholder='youremail@domain.com' value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              pattern="^\d{10}$" // Regular expression for 10-digit phone number validation
+              required // Makes the input field required
+              />
+              <button type='button' className='newsletterBtn' onClick={newsletterSignup}>Subscribe</button>
+            </form>
         </div>)}
+        
         {/**Display subscription message */}
         <p className={`message ${message ? '' : 'hidden'}`}>{message}</p>
         {/**Newsletter Display goes here */}
@@ -172,7 +173,7 @@ function HomePage() {
         {currentArticles.map((newsletters, index) => (
             <div className='newsDiplay' key={index}>
                 <div className='newsItem'>
-                    <h2 className='title'>{newsletters.title}</h2>
+                    <h1 className='title'>{newsletters.title}</h1>
                     <img src={newsletters.image} alt={newsletters.title}/>
                     <p>{newsletters.description}</p>
                     <Link to={`/ReadArticle/${newsletters.id}`} className='readarticle'>Read</Link>

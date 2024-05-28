@@ -50,11 +50,6 @@ function Newsletter() {
           placeholder="Phone number"
           aria-label="Phone number"
         />
-        <InputField
-          type="email"
-          placeholder="emailaddress@domain.com"
-          aria-label="Email address"
-        />
         <SubscribeButton>Subscribe</SubscribeButton>
       </NewsletterForm>
     </NewsletterContainer>

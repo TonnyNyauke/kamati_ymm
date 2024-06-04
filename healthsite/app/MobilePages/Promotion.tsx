@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
@@ -14,6 +14,8 @@ const ImageSlider = styled.section`
   background-color: #166534;
   border-radius: 10px;
   overflow: hidden;
+  height: 50vh;
+  zIndex: 1;
 
   .embla__container {
     display: flex;
@@ -40,12 +42,12 @@ function Promotion() {
 
   return (
     <ImageSlider className="embla mx-auto mt-12 sm:container border rounded" ref={carouselRef}>
-      <div className="embla__container h-52 w-full">
+      <div className="embla__container">
         <div className="embla__slide border border-green-200 rounded">
           <Image
             src={lemontea}
             alt="Lemon Tea"
-            className="object-contain w-full h-full"
+            className="object-contain"
             priority
             placeholder="blur"
           />
@@ -54,7 +56,7 @@ function Promotion() {
           <Image
             src={remedy}
             alt="Remedy"
-            className="object-contain w-full h-full"
+            className="object-contain"
             priority
             placeholder="blur"
           />
@@ -63,7 +65,7 @@ function Promotion() {
           <Image
             src={oil}
             alt="Coconut Oil"
-            className="object-contain w-full h-full"
+            className="object-contain"
             priority
             placeholder="blur"
           />

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
 
 const ContactInfoContainer = styled.div`
   text-align: center;

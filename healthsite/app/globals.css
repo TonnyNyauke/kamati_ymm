@@ -1,3 +1,74 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  margin: 0;
+}
+.landing {
+  margin-top: 0;
+}
+.newsletter{
+  background-image: url('./Photos/flat_lay_flowers.jpg');
+}
+.welcome{
+  background-image: url('./Photos/leaf.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* In your CSS file */
+
+.star-empty {
+    color: #ccc;
+  }
+  
+  .star-filled {
+    color: gold;
+  }
+
+  /**************** Experiments *************/
+  .form-field {
+    position: relative;
+    border: 2px solid #797474;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .form-field label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #fff;
+    padding: 0 5px;
+  }
+  
+  .form-field input {
+    width: 80%;
+    border: none;
+    outline: none;
+    padding: 5px;
+  }
+  
+  /***********Invoice stylings*************/
+  .checkout-container {
+    position: fixed; /* Ensures the checkout stays on top of the page content */
+    top: 20%; /* Positions the top edge at the beginning of the viewport */
+    left: 0; /* Positions the left edge at the beginning of the viewport */
+    width: 90vw; /* Sets the width to 90% of the viewport width */
+    height: 60%; /* Covers the entire viewport height */
+    background-color: white;
+    padding: 20px;
+    z-index: 10; /* Ensures the checkout has higher stacking order to appear on top */
+    border: 1px solid #383636; /* Added border line */
+    border-radius: 7px; /* Rounded corners */
+    
+    /* Additional styles for overlay effect */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stacks content vertically */
+    justify-content: center; /* Centers content vertically within the overlay */
+    align-items: center; /* Centers content horizontally within the overlay */
+  }
+  
+  

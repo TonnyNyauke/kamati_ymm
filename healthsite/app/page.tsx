@@ -24,10 +24,8 @@ export default function Home() {
     })
   }, [])
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      {isMobile ? <Landingpage/> : <div>
-        <p>Landing Page</p>
-        </div>}
+    <main className="flex min-h-screen flex-col items-center justify-between p-6">
+      {isMobile && <Landingpage/> }
     </main>
   );
 }

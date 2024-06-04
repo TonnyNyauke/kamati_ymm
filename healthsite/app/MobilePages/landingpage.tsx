@@ -11,6 +11,14 @@ import Testimonials from './Testimonials';
 import Newsletter from './Newsletter';
 import Footer from './Footer';
 
+const SeparatorLine = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #413333; /* Adjust color as needed */
+  margin: 20px 0; /* Adjust spacing as needed */
+`;
+
+
 const SearchInput = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -42,7 +50,7 @@ function Landingpage() {
   }
 
   return (
-    <div className="space-y-2 w-full">
+    <div className="landing space-y-2 max-w-96">
       <HeaderContainer>
         <h3>logo</h3>
         <div style={{ position: 'relative', width: '70%' }}>
@@ -51,6 +59,7 @@ function Landingpage() {
            transform: 'translateY(-50%)' }} />
           <SearchInput type="text" placeholder="Search for items" />
         </div>
+
         <button onClick={toggleSideBar}>
           {/* Using FaBars icon instead of <i> tag */}
           {/* Adding padding to the button for better UX */}
@@ -59,8 +68,10 @@ function Landingpage() {
         </button>
       </HeaderContainer>
       {toggle && <Sidebar isOpen={toggle} onClose={toggleSideBar} />}
-      <Promotion />
+      
       <Welcome />
+      <SeparatorLine />
+      <Promotion />
       <BMI />
       <Testimonials />
       <Newsletter />

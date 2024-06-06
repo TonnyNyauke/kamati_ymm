@@ -179,7 +179,7 @@ const handleIntaSendPayment = async () => {
   // Check if window is defined, indicating that the code is running on the client side
   if (typeof window !== "undefined") {
     const intaSendModule = await import("intasend-inlinejs-sdk");
-    const intaSendInstance = new window.IntaSend({
+    const intaSendInstance = new (window as any).IntaSend({
       publicAPIKey: "ISPubKey_live_d22287e5-fe58-4bbc-aa2e-aa71522186a3",
       live: true, // Set to true for the live environment
     });

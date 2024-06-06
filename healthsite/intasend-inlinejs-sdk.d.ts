@@ -11,7 +11,7 @@ declare module 'intasend-inlinejs-sdk' {
     }
   
     interface Window {
-      IntaSend: typeof IntaSend;
+      IntaSend: typeof IntaSend | undefined; // Add this line
     }
   
     export default IntaSend;

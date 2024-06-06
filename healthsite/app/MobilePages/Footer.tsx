@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome C
 const ContactInfoContainer = styled.div`
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 20px;
 
   p {
     display: flex;
@@ -16,7 +17,7 @@ const ContactInfoContainer = styled.div`
 const SocialMediaContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 100px;
 
   a {
     color: #333;
@@ -78,7 +79,7 @@ function Footer() {
         <a href='privacy-policy' target="_blank" rel="noreferrer">Privacy Policy</a>
         <a href='terms-of-service' target="_blank" rel="noreferrer">Terms of Service</a>
       </LegalLinksContainer>
-      <div className="text-black">&copy; 2024 Kamati YMM. All rights reserved.</div>
+      <div className="text-black">&copy; 2024 AyfaBest. All rights reserved.</div>
     </FooterContainer>
   );
 }

@@ -5,7 +5,7 @@ function Testimonials() {
     <section className="testimonials bg-green-100 py-10 rounded-lg">
       <div className="max-w-md mx-auto text-center">
         <h2 className="text-2xl font-bold mb-4 text-green-700">Customer testimonials</h2>
-        <div>Images (Replace with actual testimonials)</div>
+        <div>Coming soon</div>
       </div>
     </section>
   );

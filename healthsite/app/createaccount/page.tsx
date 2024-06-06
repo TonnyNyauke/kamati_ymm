@@ -5,10 +5,20 @@ import { addDoc, collection, getDocs, query, where } from 'firebase/firestore';
 import { useState } from 'react';
 import {db, auth }from '../firebase'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import styled from 'styled-components';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+const SeparatorLine = styled.div`
+  width: 60%;
+  height: 5px;
+  background-color: #413333; /* Adjust color as needed */
+  margin: 14px auto; /* Adjust spacing as needed */
+  border-radius: 2px;
+
+`;
 
 interface UserInfo {
-  firstName: string;
-  lastName: string;
+  fullName: string;
   userName: string;
   phoneNumber: string;
   email: string;
@@ -17,8 +27,7 @@ interface UserInfo {
 
 function Page() {
   const [details, setDetails] = useState<UserInfo>({
-    firstName: '',
-    lastName: '',
+    fullName: '',
     userName: '',
     phoneNumber: '',
     email: '',
@@ -28,11 +37,10 @@ function Page() {
   const handleSubmit = async (data: FormEvent<HTMLFormElement>) => {
     data.preventDefault();
     try {
-      const {firstName, lastName,userName , phoneNumber, email, password} = details;
+      const {fullName, userName , phoneNumber, email, password} = details;
       const userRef = collection(db, "Users");
       const newUser = {
-        firstName: firstName,
-        lastName: lastName,
+        fullName: fullName,
         username: userName,
         phoneNumber: phoneNumber,
         email: email,
@@ -80,17 +88,13 @@ function Page() {
     }
   }
   return (
-    <div className='px-4'>
-      <h1 className='text-2xl font-semibold m-2'>Create Account</h1>
+    <div className='px-4 min-h-full'>
+      <h1 className='text-2xl font-semibold m-2 text-center'>Create Account</h1>
         <form onSubmit={handleSubmit}>
             <div>
               <div className="form-field">
-                <input type="text" name='firstName' value={details.firstName} onChange={handleInputChange}/>
-                <label htmlFor="first-name">First Name</label>
-              </div>
-              <div  className="form-field">
-                <input type="text" name='lastName' value={details.lastName} onChange={handleInputChange}/>
-                <label htmlFor="last-name">Last Name</label>
+                <input type="text" name='fullName' value={details.fullName} onChange={handleInputChange}/>
+                <label htmlFor="full-name">Full Name</label>
               </div>
             </div>
             <div  className="form-field">
@@ -110,32 +114,34 @@ function Page() {
             </div>
             <div  className="form-field">
                 <input type="text" placeholder='********'
-                name='password' value={details.password} onChange={handleInputChange}/>
+                name='password' value={details.password} onChange={handleInputChange}
+                className=''
+                />
                 <label htmlFor="password">Password</label>
-              </div>
-              <button
-          type="submit"
-          className="w-full py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-700"
-        >
-          Create account
-        </button>
-        <p className="text-center text-sm text-gray-600">
-          Already have an account?{' '}
-          <a href="/login" className=" text-green-500 hover:text-green-700">
-            login
-          </a>
-        </p>
-        <div className="flex justify-center space-x-4 mt-4">
-          <button className="py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-700"
-          onClick={handleGoogleSignUp}
-          >
-            Sign up with Gmail
-          </button>
-          <button className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-700">
-            Sign up with Facebook
-          </button>
-          </div>
+            </div>
+              
+        <div className="flex flex-col justify-center space-y-4">
+            <button className="w-full py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-700"
+            >
+              Sign up
+            </button>
+            <button className="w-full py-2 px-4 rounded-md bg-gray-300"
+            onClick={handleGoogleSignUp}
+            >
+             <i className='fab fa-google'></i> Sign up with Gmail
+            </button>
+            <button className="w-full py-2 px-4 bg-gray-300 rounded-md hover:bg-blue-700">
+            <i className='fab fa-facebook-f'></i> Sign up with Facebook
+            </button>
+            <p className="text-center text-sm text-gray-600">
+              Already have an account?{' '}
+              <a href="/login" className=" text-green-500 hover:text-green-700">
+                login
+              </a>
+            </p>
+          </div> 
         </form>
+        <SeparatorLine />
     </div>
   )
 }

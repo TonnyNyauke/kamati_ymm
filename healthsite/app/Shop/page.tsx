@@ -11,7 +11,7 @@ const SeparatorLine = styled.div`
   width: 100%;
   height: 1px;
   background-color: #413333; /* Adjust color as needed */
-  margin: 14px 0; /* Adjust spacing as needed */
+  margin: 10px 0; /* Adjust spacing as needed */
 `;
 
 type Products = {
@@ -56,20 +56,19 @@ function Page() {
             <li><a href="#" className="text-gray-800 hover:text-blue-500">Shop</a></li>
           </ul>
           <SeparatorLine />
-            <h1 className="text-3xl font-bold text-center mb-8">Our Products</h1>  {/* Title above image */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">  {/* Responsive grid for mobile and larger screens */}
               {products.map((product) => (
             <div
               key={product.id}
               className="product-card bg-white rounded-lg shadow-md overflow-hidden mb-6 text-center"
             >
-              <h2 className="text-lg font-semibold text-gray-900 mb-2">{product.name}</h2>
+              <h2 className="text-md font-semibold text-gray-900 mb-2">{product.name}</h2>
               <Image
                 src={product.imageUrl}
                 alt={product.name}
                 width={500}
                 height={208}
-                className="w-full h-52 object-contain object-center"
+                className="w-full h-48 object-contain object-center"
               />
               <div className="flex justify-center items-center text-sm text-gray-500">
                     {/* Mock Star Rating */}

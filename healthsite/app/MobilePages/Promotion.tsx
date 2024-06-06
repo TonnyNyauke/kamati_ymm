@@ -14,7 +14,7 @@ const ImageSlider = styled.section`
   background-color: #166534;
   border-radius: 10px;
   overflow: hidden;
-  height: 50vh;
+  height: 40vh;
   zIndex: 1;
 
   .embla__container {

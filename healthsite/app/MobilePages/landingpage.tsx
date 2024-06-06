@@ -50,7 +50,7 @@ function Landingpage() {
   }
 
   return (
-    <div className="landing space-y-2 max-w-96">
+    <div className="landing space-y-4 max-w-96">
       <HeaderContainer>
         <h3>logo</h3>
         <div style={{ position: 'relative', width: '70%' }}>
@@ -68,7 +68,6 @@ function Landingpage() {
         </button>
       </HeaderContainer>
       {toggle && <Sidebar isOpen={toggle} onClose={toggleSideBar} />}
-      
       <Welcome />
       <SeparatorLine />
       <Promotion />

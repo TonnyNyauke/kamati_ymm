@@ -20,7 +20,7 @@ const NewsletterForm = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  width: 70%; /* Adjust form width as needed */
+  width: 100%; /* Adjust form width as needed */
 `;
 
 const InputField = styled.input`
@@ -54,12 +54,12 @@ const SubscribeButton = styled.button`
 
 function Newsletter() {
   return (
-    <div className='newsletter relative before:absolute before:top-0 before:left-0 
+    <div className='newsletter relative before:absolute before:top-0 before:left-0 bg-gray-100 mt-2
     before:w-full before:h-full before:bg-center before:bg-cover before:opacity-70 before:z-index-0'>
       <NewsletterContainer>
       <NewsletterForm>
-        <h2 className="text-xl font-semibold decoration-transparent">Subscribe to our weekly whatsapp newsletter</h2>
-        <InputField type="text" placeholder="Enter your email address" aria-label="Phone number" />
+        <h2 className="text-xl font-semibold decoration-transparent">Subscribe to our weekly newsletter</h2>
+        <InputField type="number" placeholder="+254 7xx xxx xxx" aria-label="Phone number" />
         <SubscribeButton>Subscribe</SubscribeButton>
       </NewsletterForm>
     </NewsletterContainer>

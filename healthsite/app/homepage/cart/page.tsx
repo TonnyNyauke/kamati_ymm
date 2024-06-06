@@ -187,7 +187,7 @@ const handleIntaSendPayment = async () => {
     // Additional logic for handling payment with IntaSend
 
     // Use await to ensure the asynchronous initialization is complete
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       intaSendInstance
         .on("COMPLETE", (response: any) => {
           console.log("COMPLETE:", response);

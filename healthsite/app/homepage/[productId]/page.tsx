@@ -144,8 +144,8 @@ function Page({ params }: { params: { productId: string } }) {
           {/* (replace with logic to populate rating based on product.rating) */}
       </div>
       <h2 className="text-xl text-green-500 font-semibold flex justify-center">KES {product.price}/-</h2>
-      <div className="flex justify-between p-4 m-6">
-        <button className="btn btn-green px-4 py-2 rounded-md focus:outline-none
+      <div className="flex justify-between p-4 m-4">
+        <button className="px-4 py-2 rounded-md focus:outline-none
         border border-yellow-300" onClick={() => addToCart(product)}>Add to Cart</button>
         <button className="px-4 py-2 rounded-md focus:outline-none text-green-500 border
         border-green-500">Buy now</button>

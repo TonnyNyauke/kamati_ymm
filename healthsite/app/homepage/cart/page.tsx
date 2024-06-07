@@ -92,17 +92,18 @@ function Page() {
     <div>
       <header className='flex justify-between bg-green-500 text-white p-4'>
         <h3>logo</h3>
-        <div className="flex justify-between items-center w-20 h-6   mr-4">
+        <div className="flex justify-between items-center w-20 h-6 mr-4">
           <Link href='/homepage'><i className="fas fa-home text-xl"></i></Link>
           <i className="fas fa-shopping-cart text-xl"></i>
         </div>
 
         </header>
       <div className='mx-2'>
-        <ul className="flex items-center space-x-2 text-gray-600 mt-2">
+        <ul className="flex items-center space-x-2 text-gray-600 m-2">
           <li><a href="/homepage" className="text-gray-800 hover:text-blue-500">Home{'>'}</a></li>
           <li><a href="/homepage/cart" className="text-gray-800 hover:text-blue-500">Cart{'>'}</a></li>
         </ul>
+        </div>
         <SeparatorLine />
         <div>
           {cartProduct.map((product) => (
@@ -121,8 +122,7 @@ function Page() {
                 KES {product.price * product.quantity}/-
               </p>
               <div className="flex flex-center items-center m-4 space-x-4">
-                <button className="w-14 h-8 border border-gray-300 bg-gray-200
-                "
+                <button className="w-14 h-8 border border-gray-300 bg-gray-200"
                   onClick={() => handleQuantityChange(product.name, -1)}
                 >
                   -
@@ -164,7 +164,7 @@ function Page() {
           </div>
           {checkout && <Checkout items={cartProduct} totalPrice={calculateTotal()} onClose={handleCloseCheckout} />}
         </div>
-      </div>
+      
     </div>
   );
 }

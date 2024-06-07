@@ -39,8 +39,6 @@ function Shopping() {
     return existingCart.some((cartItem: { name: string; }) => cartItem.name === product.name);
   };
 
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
-
   const addToCart = (product: Products) => {
     const isInCart = isProductInCart(product); // Use the function
 

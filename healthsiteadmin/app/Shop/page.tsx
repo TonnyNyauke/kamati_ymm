@@ -12,6 +12,7 @@ interface ProductData {
   Name: string;
   Description: string;
   Price: string;
+  Category: string;
   imageUrl: string;
   Details: string;
   Usage: string;
@@ -25,6 +26,7 @@ function Page() {
     Name: '',
     Description: '',
     Price: '',
+    Category: '',
     imageUrl: '',
     Details: '',
     Usage: '',
@@ -34,7 +36,7 @@ function Page() {
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
-      const { Name, Description, Price, Details, Usage } = formData;
+      const { Name, Description, Price, Category, Details, Usage } = formData;
       if (!Name.trim()) {
         alert('Name field is empty');
         return; // Exit early if name is empty
@@ -108,6 +110,9 @@ function Page() {
         <input type="text" name="Name" placeholder="Name..." value={formData.Name} onChange={handleInputChange} />
         <textarea name="Description" placeholder="Description" value={formData.Description} onChange={handleInputChange} />
         <input type="text" name="Price" placeholder="Price..." value={formData.Price} onChange={handleInputChange} />
+        <select onChange={() => handleInputChange(category}>
+          {category.map()}
+        </select>
         <textarea name="Details" placeholder="Product Details..." value={formData.Details} onChange={handleInputChange} />
         <textarea name="Usage" placeholder="How to use Products..." value={formData.Usage} onChange={handleInputChange} />
         <button type="submit">Add Product</button>

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import {auth, db} from '../firebase'
 import { collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
@@ -30,6 +30,14 @@ function Page() {
     password: '',
   });
 
+   // Check if user is already logged in on component mount
+   useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn) {
+      router.push('/homepage');
+    }
+  }, [router]);
+
   const handleSubmit = async(data: FormEvent<HTMLFormElement>) => {
     data.preventDefault();
 
@@ -49,6 +57,8 @@ function Page() {
     if (userData && userData.password !== password){
       alert("Wrong password")
     }else{
+      //Set login
+      localStorage.setItem('isLoggedIn', 'true')
       router.push('/homepage')
     }
   }
@@ -73,6 +83,8 @@ const loginwithGmail = async() => {
     const namesnapshot = await getDocs(q);
 
     if (!namesnapshot.empty){
+      //Store login state
+      localStorage.setItem('isLoggedIn', 'true');
       router.push('/homepage')
     }
     else {

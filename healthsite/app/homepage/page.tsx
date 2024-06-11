@@ -6,6 +6,7 @@ import Shopping from './shopping'
 import styled from 'styled-components';
 import { FaSearch} from 'react-icons/fa';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import WithAuth from '../WithAuth';
 
 const HeaderContainer = styled.header`
 display: flex;
@@ -38,6 +39,7 @@ height: 80px;
 `;
 
 function Page() {
+  
   return (
     <div className='flex justify-center items-center flex-col space-y-2'>
       <HeaderContainer>
@@ -67,4 +69,4 @@ function Page() {
   )
 }
 
-export default Page
+export default WithAuth(Page)

@@ -6,6 +6,7 @@ import {db} from '../../firebase'
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { Metadata } from 'next';
 
 const SeparatorLine = styled.div`
   width: 100%;
@@ -16,6 +17,11 @@ const SeparatorLine = styled.div`
 const Spacer = styled.div`
 height: 100px;
 `
+//Metadata
+export const metadata: Metadata = {
+  title: "Product"
+}
+
 // Define the shape of the product data
 interface ProductInfo {
   file: File | null;

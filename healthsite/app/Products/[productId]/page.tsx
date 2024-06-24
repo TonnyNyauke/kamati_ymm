@@ -18,9 +18,6 @@ const Spacer = styled.div`
 height: 100px;
 `
 //Metadata
-export const metadata: Metadata = {
-  title: "Product"
-}
 
 // Define the shape of the product data
 interface ProductInfo {

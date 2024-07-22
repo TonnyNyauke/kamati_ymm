@@ -110,8 +110,8 @@ function Page() {
         <input type="text" name="Name" placeholder="Name..." value={formData.Name} onChange={handleInputChange} />
         <textarea name="Description" placeholder="Description" value={formData.Description} onChange={handleInputChange} />
         <input type="text" name="Price" placeholder="Price..." value={formData.Price} onChange={handleInputChange} />
-        <select onChange={() => handleInputChange(category}>
-          {category.map()}
+        <select >
+          <option>Category</option>
         </select>
         <textarea name="Details" placeholder="Product Details..." value={formData.Details} onChange={handleInputChange} />
         <textarea name="Usage" placeholder="How to use Products..." value={formData.Usage} onChange={handleInputChange} />
